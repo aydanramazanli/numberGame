@@ -1,12 +1,42 @@
-import { View, Text } from "react-native";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 
-function PrimaryButton({ label}) {
- 
+function PrimaryButton({ label }) {
+  function pressHandler() {
+    console.log("preessed");
+  }
   return (
-    <View>
-      <Text >{label}</Text>
-     
+    <View style={styles.buttonOuterContainer}>
+      <Pressable
+        style={({pressed})=>pressed?[styles.buttonInner,styles.pressed]:styles.buttonInner}
+        onPress={pressHandler}
+        android_ripple={{ color: "3E4D8F" }}
+      >
+        <Text style={styles.buttonText}>{label}</Text>
+      </Pressable>
     </View>
   );
 }
 export default PrimaryButton;
+
+const styles = StyleSheet.create({
+  buttonOuterContainer: {
+    borderRadius: 28,
+    margin: 4,
+    overflow: "hidden",
+  },
+  buttonInner: {
+    borderRadius: 28,
+    backgroundColor: "#627FF9",
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    elevation:2,
+  },
+
+  buttonText: {
+    color: "white",
+    textAlign: "center",
+  },
+  pressed: {
+    opacity: 0.5,
+  },
+});
