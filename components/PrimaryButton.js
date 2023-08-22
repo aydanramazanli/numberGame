@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   buttonInner: {
     borderRadius: 28,
-    backgroundColor: "#627FF9",
+    backgroundColor: "#39a3e4",
     paddingVertical: 8,
     paddingHorizontal: 16,
     elevation:2,
